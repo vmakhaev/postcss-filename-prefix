@@ -1,0 +1,35 @@
+{
+  "name": "postcss-filename-prefix",
+  "version": "0.1.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "babel --optional runtime src --out-dir lib",
+    "postpublish": "rm -rf lib",
+    "lint": "standard | snazzy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "postcss": "5.x.x"
+  },
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "babel-eslint": "^4.1.5",
+    "snazzy": "^2.0.1",
+    "standard": "^5.4.1"
+  },
+  "standard": {
+    "globals": [
+      "assert",
+      "describe",
+      "it",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach"
+    ],
+    "parser": "babel-eslint"
+  }
+}
