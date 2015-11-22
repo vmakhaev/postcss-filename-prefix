@@ -1,6 +1,6 @@
 # postcss-filename-prefix
 
-A [PostCSS](https://github.com/postcss/postcss) plugin to prefix classes with corresponding filenames
+A [PostCSS](https://github.com/postcss/postcss) plugin to prefix classes with corresponding filenames  
 The idea is to isolate styles in framework components
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
