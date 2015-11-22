@@ -62,6 +62,10 @@ var out = postcss()
 
 MIT
 
+## Recommendation
+
+* Use it with [react-prefix-loader](https://github.com/vmakhaev/react-prefix-loader) for React components
+
 ## Acknowledgements
 
 * Inspired by [postcss-class-prefix](https://github.com/thompsongl/postcss-class-prefix)
