@@ -16,8 +16,7 @@
   },
   "author": "Vladimir Makhaev",
   "license": "MIT",
-  "repository": "vmakhaev/postcss-filename-prefix"
-  },
+  "repository": "vmakhaev/postcss-filename-prefix",
   "dependencies": {
     "postcss": "5.x.x"
   },
