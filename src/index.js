@@ -7,10 +7,15 @@ function fileNamePrefix (options = {}) {
   return function (root) {
     let filePath = root.source.input.file
     let fileName = path.basename(filePath)
+    let [name] = fileName.split('.')
+    if (name === 'index') {
+      let parts = filePath.split('/')
+      name = parts[parts.length - 2]
+    }
 
-    if (ignoreFileName(fileName)) return
+    if (ignoreFileName(name)) return
 
-    let prefix = fileName.split('.')[0] + '-'
+    let prefix = name + '-'
 
     root.walkRules((rule) => {
       if (!rule.selectors) return rule
@@ -21,6 +26,8 @@ function fileNamePrefix (options = {}) {
         return selector
           .split('.')
           .map((className) => {
+            if (className === 'root') return name
+
             if (ignoreClassName(className, options)) return className
 
             return prefix + className
