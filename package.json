@@ -7,10 +7,8 @@
     "postcss",
     "postcss-plugin"
   ],
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "prepublish": "babel --optional runtime src --out-dir lib",
-    "postpublish": "rm -rf lib",
     "lint": "standard | snazzy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,11 +16,9 @@
   "license": "MIT",
   "repository": "vmakhaev/postcss-filename-prefix",
   "dependencies": {
-    "postcss": "5.x.x"
+    "postcss": "^5.0.4"
   },
   "devDependencies": {
-    "babel": "^5.8.34",
-    "babel-eslint": "^4.1.5",
     "snazzy": "^2.0.1",
     "standard": "^5.4.1"
   },
@@ -35,7 +31,6 @@
       "beforeEach",
       "after",
       "afterEach"
-    ],
-    "parser": "babel-eslint"
+    ]
   }
 }
