@@ -1,6 +1,6 @@
 {
   "name": "postcss-filename-prefix",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Postcss plugin for prefixing classes with corresponding filenames",
   "keywords": [
     "css",
