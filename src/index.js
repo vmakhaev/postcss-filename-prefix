@@ -1,32 +1,31 @@
-var path = require('path')
-var postcss = require('postcss')
+import path from 'path'
+import postcss from 'postcss'
 
-module.exports = postcss.plugin('postcss-prefix', fileNamePrefix)
+export default postcss.plugin('postcss-prefix', fileNamePrefix)
 
-function fileNamePrefix (options) {
-  options = options || {}
+function fileNamePrefix (options = {}) {
   return function (root) {
-    var filePath = root.source.input.file
-    var fileName = path.basename(filePath)
-    var name = fileName.split('.')[0]
+    let filePath = root.source.input.file
+    let fileName = path.basename(filePath)
+    let [name] = fileName.split('.')
     if (name === 'index') {
-      var parts = filePath.split('/')
+      let parts = filePath.split('/')
       name = parts[parts.length - 2]
     }
 
     if (ignoreFileName(name)) return
 
-    var prefix = name + '-'
+    let prefix = name + '-'
 
-    root.walkRules(function (rule) {
+    root.walkRules((rule) => {
       if (!rule.selectors) return rule
 
-      rule.selectors = rule.selectors.map(function (selector) {
+      rule.selectors = rule.selectors.map((selector) => {
         if (!isClassSelector(selector)) return selector
 
         return selector
           .split('.')
-          .map(function (className) {
+          .map((className) => {
             if (className === 'root') return name
 
             if (ignoreClassName(className, options)) return className
@@ -56,7 +55,7 @@ function classMatchesTest (className, ignore) {
   if (ignore instanceof RegExp) return ignore.exec(className)
 
   if (Array.isArray(ignore)) {
-    return ignore.some(function (test) {
+    return ignore.some((test) => {
       if (test instanceof RegExp) return test.exec(className)
 
       return className === test
