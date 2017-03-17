@@ -1,6 +1,8 @@
 import path from 'path'
 import postcss from 'postcss'
 
+const classNameRegex = /\.([a-z][a-zA-Z\d_\-]*)/g
+
 export default postcss.plugin('postcss-prefix', fileNamePrefix)
 
 function fileNamePrefix (options = {}) {
@@ -23,16 +25,11 @@ function fileNamePrefix (options = {}) {
       rule.selectors = rule.selectors.map((selector) => {
         if (!isClassSelector(selector)) return selector
 
-        return selector
-          .split('.')
-          .map((className) => {
-            if (className === 'root') return name
-
-            if (ignoreClassName(className, options)) return className
-
-            return prefix + className
-          })
-          .join('.')
+        return selector.replace(classNameRegex, (match, className) => {
+          if (ignoreClassName(className, options)) return '.' + className
+          if (className === 'root') return '.' + name
+          return '.' + prefix + className
+        })
       })
     })
   }
