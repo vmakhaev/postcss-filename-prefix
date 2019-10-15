@@ -11,7 +11,7 @@ function fileNamePrefix (options = {}) {
     let fileName = path.basename(filePath)
     let [name] = fileName.split('.')
     if (name === 'index') {
-      let parts = filePath.split('/')
+      let parts = filePath.split(path.sep)
       name = parts[parts.length - 2]
     }
 
