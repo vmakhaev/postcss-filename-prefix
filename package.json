@@ -17,9 +17,6 @@
   "author": "Vladimir Makhaev",
   "license": "MIT",
   "repository": "vmakhaev/postcss-filename-prefix",
-  "dependencies": {
-    "postcss": "5.x.x"
-  },
   "devDependencies": {
     "babel-cli": "^6.3.17",
     "babel-core": "^6.3.21",
@@ -33,6 +30,9 @@
     "babel-runtime": "^6.3.19",
     "snazzy": "^2.0.1",
     "standard": "^5.4.1"
+  },
+  "peerDependencies": {
+    "postcss": ">= 5.0.0"
   },
   "standard": {
     "globals": [
