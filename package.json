@@ -1,6 +1,6 @@
 {
   "name": "postcss-filename-prefix",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Postcss plugin for prefixing classes with corresponding filenames",
   "keywords": [
     "css",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "repository": "vmakhaev/postcss-filename-prefix",
   "dependencies": {
-    "postcss": "5.x.x"
+    "postcss": "^7.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.3.17",
