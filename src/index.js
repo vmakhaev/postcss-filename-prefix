@@ -15,7 +15,7 @@ function fileNamePrefix (options = {}) {
       name = parts[parts.length - 2]
     }
 
-    if (ignoreFileName(name)) return
+    if (ignoreFileName(fileName)) return
 
     let prefix = name + '-'
 
@@ -36,7 +36,9 @@ function fileNamePrefix (options = {}) {
 }
 
 function ignoreFileName (fileName) {
-  return /^[^A-Z]/.test(fileName)
+  // ignore files not beginning with capital letter
+  // ignore css module files to avoid conflict
+  return /^[^A-Z]/.test(fileName) || /(?:\.module).(css|sass|scss|less|styl)(?:.*)$/.test(fileName);
 }
 
 function ignoreClassName (className, options) {

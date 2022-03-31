@@ -25,6 +25,7 @@ Ignores:
 - filenames that starts from not capital letter
 - modifiers (classes that starts from hyphen)
 - classes that starts from capital letter
+- css module files
 
 ## Installation
 
